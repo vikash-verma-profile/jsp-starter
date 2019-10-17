@@ -6,6 +6,9 @@
     </head>
     <body>
        
-        HI
+        <%
+        out.print(request.getAttribute("Name"));
+        
+        %>
     </body>
 </html>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.signup.signup;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
 public class Login extends HttpServlet {
@@ -15,13 +16,13 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        objsignup =new signup();
+        objsignup = new signup();
         int IsInserted = objsignup.RegisterUser(request.getParameter("fullname"), request.getParameter("email"), request.getParameter("password"));
         int UserId = objsignup.getUserId(request.getParameter("email"), request.getParameter("password"));
         HttpSession session = request.getSession();
         session.setAttribute("Userid", UserId);
         request.setAttribute("Name", request.getParameter("fullname"));
-        
-       // response.sendRedirect("./welcome.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+        rd.forward(request, response);
     }
 }
