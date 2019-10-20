@@ -1,6 +1,7 @@
 package com.signup;
 
 import com.db.dbConnection;
+import com.models.UserDetails;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -9,7 +10,7 @@ import java.sql.Statement;
  *
  * @author om
  */
-public class signup {
+public class loginsignup {
 
     Connection con;
     dbConnection db;
@@ -50,4 +51,24 @@ public class signup {
         return UserID;
     }
 
+    public UserDetails getUserDetails(String emailId, String password) {
+        UserDetails ObjUserDetails = new UserDetails();
+        String sql = "";
+        try {
+            db = new dbConnection();
+            con = db.GetDbconnection();
+            stmt = (Statement) con.createStatement();
+            sql = "select id,UserName,FirstName from login where UserName='" + emailId + "' and Password='" + password + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ObjUserDetails.setId(Integer.toString(rs.getInt(1)));
+                ObjUserDetails.setEmailid(rs.getString(2));
+                ObjUserDetails.setName(rs.getString(3));
+            }
+            con.close();
+        } catch (Exception ex) {
+
+        }
+        return ObjUserDetails;
+    }
 }

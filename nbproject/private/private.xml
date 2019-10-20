@@ -4,8 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/om/Documents/NetBeansProjects/jsp-starter/web/welcome.jsp</file>
+            <file>file:/C:/Users/om/Documents/NetBeansProjects/jsp-starter/src/java/com/db/dbConnection.java</file>
             <file>file:/C:/Users/om/Documents/NetBeansProjects/jsp-starter/src/java/Login.java</file>
             <file>file:/C:/Users/om/Documents/NetBeansProjects/jsp-starter/web/index.jsp</file>
+            <file>file:/C:/Users/om/Documents/NetBeansProjects/jsp-starter/src/java/com/signup/signup.java</file>
         </group>
     </open-files>
 </project-private>

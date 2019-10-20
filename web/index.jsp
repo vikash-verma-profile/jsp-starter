@@ -28,7 +28,7 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
     <body>
-      
+
         <!-- navbar-->
         <header class="header">
             <nav class="navbar navbar-expand-lg fixed-top"><a href="index.html" class="navbar-brand">Landy</a>
@@ -43,6 +43,7 @@
                     <div class="navbar-text">   
                         <!-- Button trigger modal--><a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Sign Up</a>
                     </div>
+
                 </div>
             </nav>
         </header>
@@ -50,28 +51,52 @@
         <div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
             <div role="document" class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 id="exampleModalLabel" class="modal-title">Sign Up Modal</h5>
-                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="signupform" action="Login" method="Post">
-                            <div class="form-group">
-                                <label for="fullname">Full Name</label>
-                                <input type="text" name="fullname" placeholder="Full Name" id="fullname">
+                    <div class="container">
+                        <ul class="nav nav-tabs">
+                            <li  id="Signuptab" class="active"><a href="#">Signup</a></li>
+                            <li id="Logintab" ><a href="#">Login</a></li>
+                        </ul>
+                        <div id="SignupDiv"  class="tab-content">
+                            <div class="modal-header">
+                                <h5 id="exampleModalLabel" class="modal-title">Sign Up</h5>
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" placeholder="Please enter password" id="username">
+                            <div class="modal-body">
+                                <form id="signupform" action="Signup" method="Post">
+                                    <div class="form-group">
+                                        <label for="fullname">Full Name</label>
+                                        <input type="text" name="fullname" placeholder="Full Name" id="fullname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" placeholder="Please enter password" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="text" name="email" placeholder="Email Address" id="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="submit btn btn-primary btn-shadow btn-gradient">Signup</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="text" name="email" placeholder="Email Address" id="email">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="submit btn btn-primary btn-shadow btn-gradient">Signup</button>
-                            </div>
-                        </form>
+                        </div>
+                        <div id="LoginDiv"  class="tab-content">
+                              <form id="signupform" action="Login" method="Post">
+                                    <div class="form-group">
+                                        <label for="UserName">UserName</label>
+                                        <input type="text" name="UserName" placeholder="UserName" id="UserName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Loginpassword">Password</label>
+                                        <input type="password" name="Loginpassword" placeholder="Please enter password" id="Loginpassword">
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <button type="submit" class="submit btn btn-primary btn-shadow btn-gradient">Login</button>
+                                    </div>
+                                </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -320,20 +345,37 @@
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
         <!---->
         <script>
-    (function (b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] || (b[l] =
-                function () {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-        b[l].l = +new Date;
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = '//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X');
+            ga('send', 'pageview');
+
+
+            $(document).ready(function () {
+                $('#LoginDiv').hide();
+            });
+            $('#Logintab').click(function () {
+                $('#LoginDiv').show();
+                $('#SignupDiv').hide();
+                $('#Logintab').addClass('active');
+                $('#Signuptab').removeClass('active');
+            });
+            $('#Signuptab').click(function () {
+                $('#LoginDiv').hide();
+                $('#SignupDiv').show();
+                $('#Logintab').removeClass('active');
+                $('#Signuptab').addClass('active');
+            });
         </script>
     </body>
 </html>
