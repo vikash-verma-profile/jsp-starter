@@ -71,4 +71,25 @@ public class loginsignup {
         }
         return ObjUserDetails;
     }
+    
+     public UserDetails getUserDetailsByUserID(String UserId) {
+        UserDetails ObjUserDetails = new UserDetails();
+        String sql = "";
+        try {
+            db = new dbConnection();
+            con = db.GetDbconnection();
+            stmt = (Statement) con.createStatement();
+            sql = "select id,UserName,FirstName from login where id=" + UserId;
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ObjUserDetails.setId(Integer.toString(rs.getInt(1)));
+                ObjUserDetails.setEmailid(rs.getString(2));
+                ObjUserDetails.setName(rs.getString(3));
+            }
+            con.close();
+        } catch (Exception ex) {
+
+        }
+        return ObjUserDetails;
+    }
 }
